@@ -1,3 +1,15 @@
+function getLastFridayOfMonth(year, month) {
+  const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+  const daysInWeek = 7;
+  const dayOfWeekFriday = 5;
+  const daysToSubtract = (new Date(year, month, lastDayOfMonth).getDay() + daysInWeek - dayOfWeekFriday) % daysInWeek;
+  return lastDayOfMonth - daysToSubtract;
+}
+
+function dayToPayDay() {
+  return getLastFridayOfMonth(new Date().getFullYear(), new Date().getMonth()) - new Date().getDate();
+}
+
 var e = Object.defineProperty,
   t = Object.getOwnPropertySymbols,
   a = Object.prototype.hasOwnProperty,
@@ -87,7 +99,7 @@ function d() {
         i.createElement(
           'div',
           { className: 'paid-toast' },
-          i.createElement('p', null, '今天已经赚了 ', n, ' 元'),
+          i.createElement('p', null, '今天已经赚了 ', n, ` 元，还有 ${dayToPayDay()} 发工资`),
           i.createElement(
             'p',
             null,
