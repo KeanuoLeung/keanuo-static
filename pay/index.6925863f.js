@@ -99,12 +99,12 @@ function d() {
         i.createElement(
           'div',
           { className: 'paid-toast' },
-          i.createElement('p', null, '今天已经赚了 ', n, ` 元，还有 ${dayToPayDay()} 发工资`),
+          i.createElement('p', null, '今天已经赚了 ', n, ` 元`),
           i.createElement(
             'p',
             null,
             ' ',
-            1 === e ? '🎮 下班啦' : `🧱 目标 ${t} 元`,
+            1 === e ? '🎮 下班啦' : `🧱 目标 ${t} 元，还有 ${dayToPayDay()}天 发工资`,
             ' '
           )
         )
