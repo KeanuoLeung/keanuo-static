@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>信用卡计算器</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input {
+            background-color: #1E1E1E;
+            border: none;
+            color: #FFFFFF;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 16px;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 30px;
+        }
+
+        button {
+            background-color: #1E1E1E;
+            border: none;
+            color: #FFFFFF;
+            font-size: 24px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3E3E3E;
+        }
+
+        .credit-card {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .credit-card img {
+            height: 40px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>分期计算器</h1>
+    <label for="will">待分期：</label>
+    <input type="number" id="will" onchange="calculate()">
+    <label for="realRemain">剩余额度：</label>
+    <input type="number" id="realRemain" onchange="calculate()">
+    <label for="total">总额度：</label>
+    <input type="number" id="total" onchange="calculate()">
+    <div class="credit-card" id="credit-cards">
+    </div>
+    <p id="result"></p>
+    <script>
+        const creditCards = [
+            {
+                name: "招商银行信用卡",
+                amount: 50000,
+                emoji: "🍺"
+            },
+            {
+                name: "花呗",
+                amount: 10000,
+                emoji: "🐮"
+            },
+            {
+                name: "交通银行信用卡",
+                amount: 17000,
+                emoji: "🚗"
+            },
+            {
+                name: "建设银行信用卡",
+                amount: 50000,
+                emoji: "🏠"
+            },
+            {
+                name: "京东白条",
+                amount: 19930,
+                emoji: "🐶"
+            }
+        ];
+        const creditCardContainer = document.getElementById("credit-cards");
+        for (let i = 0; i < creditCards.length; i++) {
+            const button = document.createElement("button");
+            button.innerHTML = `${creditCards[i].emoji}${creditCards[i].name}`;
+            button.onclick = function () {
+                document.getElementById("total").value = creditCards[i].amount;
+                calculate();
+            }
+            creditCardContainer.appendChild(button);
+        }
+        function calculate() {
+            const will = Number(document.getElementById("will").value);
+            const realRemain = Number(document.getElementById("realRemain").value);
+            const total = Number(document.getElementById("total").value);
+            const realCost = total - realRemain;
+            const result = realCost - will;
+            document.getElementById("result").innerHTML = "已消费金额为：" + result;
+        }
+    </script>
+</body>
+
+</html>
