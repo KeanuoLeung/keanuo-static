@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-
-<head>
-    <meta charset="utf-8">
-    <style>
-        .test {
-            font-size: 100px;
-            text-align: center;
-            width: 100%;
-            height: 100%;
-            top: 300px;
-        }
-    </style>
-</head>
-
-<body>
-    <button class="test">点击跳转</button>
-    <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
-  
-    <script>
-        const t = navigator.userAgent,
+const t = navigator.userAgent,
   e = /(iPhone|iPad|iPod|iOS)/i.test(t),
   n = /Windows\sPhone/i.test(t),
   i = /(Android)/i.test(t),
@@ -468,45 +448,4 @@ const X = {
     return O(t, i), () => V(t, "touchend", i);
   },
 };
-
-        var vConsole = new VConsole();
-        const component = document.querySelector('.test');
-        console.log(JSON.stringify(component), "component")
-        window.addEventListener('click', (e) => {
-            console.log(e.target.className, "leiming")
-
-            console.log("tesing", D)
-            console.log(top, "top--")
-            console.log(top?.window?.WeixinJSBridge, "WEXING BRAN---")
-            try {
-                component.innerHTML = `<div>${JSON.stringify(top?.window?.WeixinJSBridge)} test</div>`
-            } catch (e) {
-                component.innerHTML = `<div>${JSON.stringify(e)} test</div>`
-            }
-
-            const t = {
-                "userName": "gh_8f607e128043@app",
-                "scene": 1058,
-                "sceneNote": "https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FQrauK_CoDVXrmCabL8jfZQ:gh_2c6f22a82e8b:DM小程序测试:2:别问，点我，click me!!!:pages/home/index?id=730934795185:0:wx99a9fd88848ff7f0",
-                "relativeURL": "pages/home/index.html?id=730934795185&appid=wx99a9fd88848ff7f0",
-                "appVersion": 278,
-                "sourceAppId": "wx99a9fd88848ff7f0"
-            }
-            if (typeof top?.window?.WeixinJSBridge?.invoke === 'function') {
-               
-                top.window.WeixinJSBridge.invoke('openWeApp', t, function (t) {
-                    console.log(t, "test jump")
-                })
-                console.log(D, "jjjjj")
-                D.invoke('openWeApp', t, function(t){
-                    console.log(t, "test jump")
-                })
-            } else if (typeof WeixinJSBridge) {
-                WeixinJSBridge.invoke('openWeApp', t, function (t) {
-                    console.log(t, "test jump")
-                })
-            }
-
-        })
-    </script>
-</body>
+export { X as D, D as J, M as m };
