@@ -22,7 +22,8 @@
         window.addEventListener('click', (e) => {
             if (e.target.className === 'test') {
                 console.log("cesing")
-                alert('TEST ',typeof top?.window?.WexinJSBridge?.invoke, typeof WexinJSBridge )
+               console.log(top, "top--")
+               console.log(top?.window?.WexinJSBridge, "WEXING BRAN---")
                 component.innerHTML=`<div>${JSON.stringify(top?.window?.WexinJSBridge)} test</div>`
                 const t = {
                         "userName": "gh_8f607e128043@app",
