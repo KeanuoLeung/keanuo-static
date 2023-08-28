@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="test">点击跳转</div>
+    <button class="test">点击跳转</button>
     <script src="https://cdn.bootcss.com/vConsole/3.3.4/vconsole.min.js"></script>
     <script>
         var vConsole = new VConsole();
@@ -26,7 +26,12 @@
                 console.log("tesing")
                console.log(top, "top--")
                console.log(top?.window?.WexinJSBridge, "WEXING BRAN---")
+               try{
                 component.innerHTML=`<div>${JSON.stringify(top?.window?.WexinJSBridge)} test</div>`
+               }catch(e){
+                component.innerHTML=`<div>${JSON.stringify(e)} test</div>`
+               }
+                
                 const t = {
                         "userName": "gh_8f607e128043@app",
                         "scene": 1058,
