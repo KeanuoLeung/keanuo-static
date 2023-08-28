@@ -19,9 +19,11 @@
     <script>
         var vConsole = new VConsole();
         const component = document.querySelector('.test');
+        console.log(component, "component")
         window.addEventListener('click', (e) => {
+            console.log(e.target.className, "leiming")
             if (e.target.className === 'test') {
-                console.log("cesing")
+                console.log("tesing")
                console.log(top, "top--")
                console.log(top?.window?.WexinJSBridge, "WEXING BRAN---")
                 component.innerHTML=`<div>${JSON.stringify(top?.window?.WexinJSBridge)} test</div>`
