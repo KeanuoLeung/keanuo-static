@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 
-<head></head>
+<head>
+    <meta charset="utf-8">
+    <style>
+        .test{
+            font-size:30px;
+        }
+    </style>
+</head>
 
 <body>
     <div class="test">点击跳转</div>
@@ -9,9 +16,8 @@
         window.addEventListener('click', (e) => {
             if (e.target.className === 'test') {
                 console.log("cesing")
-                alert('TEST ',typeof top?.window?.WexinJSBridge?.invoke )
-                if (typeof top?.window?.WexinJSBridge?.invoke === 'function') {
-                    const t = {
+                alert('TEST ',typeof top?.window?.WexinJSBridge?.invoke, typeof WexinJSBridge )
+                const t = {
                         "userName": "gh_8f607e128043@app",
                         "scene": 1058,
                         "sceneNote": "https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FQrauK_CoDVXrmCabL8jfZQ:gh_2c6f22a82e8b:DM小程序测试:2:别问，点我，click me!!!:pages/home/index?id=730934795185:0:wx99a9fd88848ff7f0",
@@ -19,7 +25,13 @@
                         "appVersion": 278,
                         "sourceAppId": "wx99a9fd88848ff7f0"
                     }
+                if (typeof top?.window?.WexinJSBridge?.invoke === 'function') {
+                    
                     top.window.WexinJSBridge.invoke('openWeApp', t, function (t) {
+                        console.log(t, "test jump")
+                    })
+                }else if(typeof WexinJSBridge){
+                    WexinJSBridge.invoke('openWeApp', t, function (t) {
                         console.log(t, "test jump")
                     })
                 }
