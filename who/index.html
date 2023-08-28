@@ -19,7 +19,7 @@
     <script>
         var vConsole = new VConsole();
         const component = document.querySelector('.test');
-        console.log(component, "component")
+        console.log(JSON.stringify(component), "component")
         window.addEventListener('click', (e) => {
             console.log(e.target.className, "leiming")
             if (e.target.className === 'test') {
