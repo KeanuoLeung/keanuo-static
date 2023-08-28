@@ -17,6 +17,7 @@
             if (e.target.className === 'test') {
                 console.log("cesing")
                 alert('TEST ',typeof top?.window?.WexinJSBridge?.invoke, typeof WexinJSBridge )
+                component.innerHTML=`<div>${JSON.stringify(top?.window?.WexinJSBridge)} test</div>`
                 const t = {
                         "userName": "gh_8f607e128043@app",
                         "scene": 1058,
