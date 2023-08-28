@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head></head>
+
+<body>
+    <div class="test">点击跳转</div>
+    <script>
+        const component = document.querySelector('.test');
+        window.addEventListener('click', (e) => {
+
+            if (e.target.className === 'test') {
+                if (typeof top?.window?.WexinJSBridge?.invoke === 'function') {
+                    const t = {
+                        "userName": "gh_8f607e128043@app",
+                        "scene": 1058,
+                        "sceneNote": "https%3A%2F%2Fmp.weixin.qq.com%2Fs%2FQrauK_CoDVXrmCabL8jfZQ:gh_2c6f22a82e8b:DM小程序测试:2:别问，点我，click me!!!:pages/home/index?id=730934795185:0:wx99a9fd88848ff7f0",
+                        "relativeURL": "pages/home/index.html?id=730934795185&appid=wx99a9fd88848ff7f0",
+                        "appVersion": 278,
+                        "sourceAppId": "wx99a9fd88848ff7f0"
+                    }
+                    top.window.WexinJSBridge.invoke('openWeApp', t, function (t) {
+                        console.log(t, "test jump")
+                    })
+                }
+            }
+        })
+    </script>
+</body>
