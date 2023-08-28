@@ -7,8 +7,9 @@
     <script>
         const component = document.querySelector('.test');
         window.addEventListener('click', (e) => {
-
             if (e.target.className === 'test') {
+                console.log("cesing")
+                alert('TEST ',typeof top?.window?.WexinJSBridge?.invoke )
                 if (typeof top?.window?.WexinJSBridge?.invoke === 'function') {
                     const t = {
                         "userName": "gh_8f607e128043@app",
