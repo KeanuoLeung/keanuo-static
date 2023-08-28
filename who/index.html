@@ -25,9 +25,9 @@
       
                 console.log("tesing")
                console.log(top, "top--")
-               console.log(top?.window?.WexinJSBridge, "WEXING BRAN---")
+               console.log(top?.window?.WeixinJSBridge, "WEXING BRAN---")
                try{
-                component.innerHTML=`<div>${JSON.stringify(top?.window?.WexinJSBridge)} test</div>`
+                component.innerHTML=`<div>${JSON.stringify(top?.window?.WeixinJSBridge)} test</div>`
                }catch(e){
                 component.innerHTML=`<div>${JSON.stringify(e)} test</div>`
                }
@@ -40,13 +40,13 @@
                         "appVersion": 278,
                         "sourceAppId": "wx99a9fd88848ff7f0"
                     }
-                if (typeof top?.window?.WexinJSBridge?.invoke === 'function') {
+                if (typeof top?.window?.WeixinJSBridge?.invoke === 'function') {
                     
-                    top.window.WexinJSBridge.invoke('openWeApp', t, function (t) {
+                    top.window.WeixinJSBridge.invoke('openWeApp', t, function (t) {
                         console.log(t, "test jump")
                     })
-                }else if(typeof WexinJSBridge){
-                    WexinJSBridge.invoke('openWeApp', t, function (t) {
+                }else if(typeof WeixinJSBridge){
+                    WeixinJSBridge.invoke('openWeApp', t, function (t) {
                         console.log(t, "test jump")
                     })
                 }
